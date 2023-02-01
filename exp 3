@@ -1,0 +1,210 @@
+mysql> use sse;
+Database changed
+mysql> create table mentees(regno int(10),name varchar(10),dept varchar(10),address varchar(10),fathername varchar(10));
+ERROR 1050 (42S01): Table 'mentees' already exists
+mysql> create table mentees1(regno int(10),name varchar (10),address varchar(10),dept varchar(10),fathername varchar(10));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into mentees1 values(192224053,"indu","nrt","cse","madhav");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into mentees1 values(191112300,"nikita","ap","cse","sunny");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into mentees1 values(192220009,"janu","chennai","aids","koti");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into mentees1 values(192223043,"varsha","warangal","cse","surya");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into mentees1 values(192223456,"mahi","sunil","cse","mahesh");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select *from mentees1;
++-----------+--------+----------+------+------------+
+| regno     | name   | address  | dept | fathername |
++-----------+--------+----------+------+------------+
+| 192224053 | indu   | nrt      | cse  | madhav     |
+| 191112300 | nikita | ap       | cse  | sunny      |
+| 192220009 | janu   | chennai  | aids | koti       |
+| 192223043 | varsha | warangal | cse  | surya      |
+| 192223456 | mahi   | sunil    | cse  | mahesh     |
++-----------+--------+----------+------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select name from mentees1;
++--------+
+| name   |
++--------+
+| indu   |
+| nikita |
+| janu   |
+| varsha |
+| mahi   |
++--------+
+5 rows in set (0.00 sec)
+
+mysql> select*from mentees1 where name="nikita";
++-----------+--------+---------+------+------------+
+| regno     | name   | address | dept | fathername |
++-----------+--------+---------+------+------------+
+| 191112300 | nikita | ap      | cse  | sunny      |
++-----------+--------+---------+------+------------+
+1 row in set (0.00 sec)
+
+mysql>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
