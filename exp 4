@@ -1,0 +1,84 @@
+mysql> use sse;
+Database changed
+mysql> select*from mentees1;
++-----------+--------+----------+------+------------+
+| regno     | name   | address  | dept | fathername |
++-----------+--------+----------+------+------------+
+| 192224053 | indu   | nrt      | cse  | madhav     |
+| 191112300 | nikita | ap       | cse  | sunny      |
+| 192220009 | janu   | chennai  | aids | koti       |
+| 192223043 | varsha | warangal | cse  | surya      |
+| 192223456 | mahi   | sunil    | cse  | mahesh     |
++-----------+--------+----------+------+------------+
+5 rows in set (0.00 sec)
+
+mysql> update mentees set dept="cse" where regno=192220009;
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> select*from mentees;
++----------+------------+-----------+------+---------+
+| name     | fathername | regno     | dept | address |
++----------+------------+-----------+------+---------+
+| indrashi | madhava    | 192211196 | cse  | chitoor |
+| nikki    | chethan    | 192224053 | cse  | vizag   |
++----------+------------+-----------+------+---------+
+2 rows in set (0.00 sec)
+
+mysql> update mentees1 set address="chennai"where dept="cse"
+    -> update mentees1 set address="chennai"where dept="cse";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'update mentees1 set address="chennai"where dept="cse"' at line 2
+mysql> update mentees1 set address="chennai"where dept="cse";
+Query OK, 4 rows affected (0.00 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> select* from mentees1;
++-----------+--------+---------+------+------------+
+| regno     | name   | address | dept | fathername |
++-----------+--------+---------+------+------------+
+| 192224053 | indu   | chennai | cse  | madhav     |
+| 191112300 | nikita | chennai | cse  | sunny      |
+| 192220009 | janu   | chennai | aids | koti       |
+| 192223043 | varsha | chennai | cse  | surya      |
+| 192223456 | mahi   | chennai | cse  | mahesh     |
++-----------+--------+---------+------+------------+
+5 rows in set (0.00 sec)
+
+mysql> delete from mentees where fathername="sunny";
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select* from mentees;
++----------+------------+-----------+------+---------+
+| name     | fathername | regno     | dept | address |
++----------+------------+-----------+------+---------+
+| indrashi | madhava    | 192211196 | cse  | chitoor |
+| nikki    | chethan    | 192224053 | cse  | vizag   |
++----------+------------+-----------+------+---------+
+2 rows in set (0.00 sec)
+
+mysql>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
