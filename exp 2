@@ -1,0 +1,36 @@
+mysql> create database sse;
+ERROR 1007 (HY000): Can't create database 'sse'; database exists
+mysql> use sse;
+Database changed
+mysql> create table sse (empdepartment varchar(20),empid int(7),student varchar(20),studentid int (10));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc sse;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| empdepartment | varchar(20) | YES  |     | NULL    |       |
+| empid         | int(7)      | YES  |     | NULL    |       |
+| student       | varchar(20) | YES  |     | NULL    |       |
+| studentid     | int(10)     | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> create table faculty (id int(10),name varchar(20),department varchar(25),gender varchar(1),mobileno int(10));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc faculty;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| id         | int(10)     | YES  |     | NULL    |       |
+| name       | varchar(20) | YES  |     | NULL    |       |
+| department | varchar(25) | YES  |     | NULL    |       |
+| gender     | varchar(1)  | YES  |     | NULL    |       |
+| mobileno   | int(10)     | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql>
+
+
