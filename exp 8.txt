@@ -1,0 +1,51 @@
+mysql> use sse;
+Database changed
+mysql> select* from mentees1;
++-----------+--------+---------+------+------------+---------+-------+--------+
+| regno     | name   | address | dept | fathername | subject | marks | marks2 |
++-----------+--------+---------+------+------------+---------+-------+--------+
+| 192224053 | indu   | chennai | cse  | madhav     | dbms    |    98 |   NULL |
+| 191112300 | nikita | chennai | cse  | sunny      | dbms    |    90 |   NULL |
+| 192220009 | janu   | chennai | aids | koti       | NULL    |    50 |   NULL |
+| 192223043 | varsha | chennai | cse  | surya      | dbms    |    91 |   NULL |
+| 192223456 | mahi   | chennai | cse  | mahesh     | dbms    |    95 |   NULL |
++-----------+--------+---------+------+------------+---------+-------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select regno,name from mentees where name in(select name from mentees1 where dept="cse");
+Empty set (0.00 sec)
+
+mysql>
+mysql> create table mentees2(id int(10),name varchar (20));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into mentees2(id,name)
+    -> select regno,name from mentees1 where dept="cse";
+Query OK, 4 rows affected (0.00 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select* from mentees2;
++-----------+--------+
+| id        | name   |
++-----------+--------+
+| 192224053 | indu   |
+| 191112300 | nikita |
+| 192223043 | varsha |
+| 192223456 | mahi   |
++-----------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select regno, (select name from mentees2 where id=192224053)as name,dept,adress,marks,subject from mentees1 where regno=192224053;
+ERROR 1054 (42S22): Unknown column 'adress' in 'field list'
+mysql> select regno, (select name from mentees2 where id=192224053)as name,dept,address,marks,subject from mentees1 where regno=192224053;
++-----------+------+------+---------+-------+---------+
+| regno     | name | dept | address | marks | subject |
++-----------+------+------+---------+-------+---------+
+| 192224053 | indu | cse  | chennai |    98 | dbms    |
++-----------+------+------+---------+-------+---------+
+1 row in set (0.00 sec)
+
+mysql>
+
+
+
