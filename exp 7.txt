@@ -1,0 +1,171 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 12
+Server version: 5.5.62 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use sse;
+Database changed
+mysql> select*from mentees1;
++-----------+--------+---------+------+------------+---------+
+| regno     | name   | address | dept | fathername | subject |
++-----------+--------+---------+------+------------+---------+
+| 192224053 | indu   | chennai | cse  | madhav     | dbms    |
+| 191112300 | nikita | chennai | cse  | sunny      | dbms    |
+| 192220009 | janu   | chennai | aids | koti       | NULL    |
+| 192223043 | varsha | chennai | cse  | surya      | dbms    |
+| 192223456 | mahi   | chennai | cse  | mahesh     | dbms    |
++-----------+--------+---------+------+------------+---------+
+5 rows in set (0.00 sec)
+
+mysql> select from mentees1 order by name;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from mentees1 order by name' at line 1
+mysql> select*from mentees1 order by name;
++-----------+--------+---------+------+------------+---------+
+| regno     | name   | address | dept | fathername | subject |
++-----------+--------+---------+------+------------+---------+
+| 192224053 | indu   | chennai | cse  | madhav     | dbms    |
+| 192220009 | janu   | chennai | aids | koti       | NULL    |
+| 192223456 | mahi   | chennai | cse  | mahesh     | dbms    |
+| 191112300 | nikita | chennai | cse  | sunny      | dbms    |
+| 192223043 | varsha | chennai | cse  | surya      | dbms    |
++-----------+--------+---------+------+------------+---------+
+5 rows in set (0.00 sec)
+
+mysql> alter table mentees1 add marks int(3);
+Query OK, 5 rows affected (0.02 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> update mentees set marks=98 where regno=192224053;
+ERROR 1054 (42S22): Unknown column 'marks' in 'field list'
+mysql> alter table mentees1 add marks int(3);
+ERROR 1060 (42S21): Duplicate column name 'marks'
+mysql> show tables;
++---------------+
+| Tables_in_sse |
++---------------+
+| faculty       |
+| mentees       |
+| mentees1      |
+| sse           |
++---------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from mentees1;
++-----------+--------+---------+------+------------+---------+-------+
+| regno     | name   | address | dept | fathername | subject | marks |
++-----------+--------+---------+------+------------+---------+-------+
+| 192224053 | indu   | chennai | cse  | madhav     | dbms    |  NULL |
+| 191112300 | nikita | chennai | cse  | sunny      | dbms    |  NULL |
+| 192220009 | janu   | chennai | aids | koti       | NULL    |  NULL |
+| 192223043 | varsha | chennai | cse  | surya      | dbms    |  NULL |
+| 192223456 | mahi   | chennai | cse  | mahesh     | dbms    |  NULL |
++-----------+--------+---------+------+------------+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> alter table mentees1 add marks2 int(3);
+Query OK, 5 rows affected (0.02 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from mentees1;
++-----------+--------+---------+------+------------+---------+-------+--------+
+| regno     | name   | address | dept | fathername | subject | marks | marks2 |
++-----------+--------+---------+------+------------+---------+-------+--------+
+| 192224053 | indu   | chennai | cse  | madhav     | dbms    |  NULL |   NULL |
+| 191112300 | nikita | chennai | cse  | sunny      | dbms    |  NULL |   NULL |
+| 192220009 | janu   | chennai | aids | koti       | NULL    |  NULL |   NULL |
+| 192223043 | varsha | chennai | cse  | surya      | dbms    |  NULL |   NULL |
+| 192223456 | mahi   | chennai | cse  | mahesh     | dbms    |  NULL |   NULL |
++-----------+--------+---------+------+------------+---------+-------+--------+
+5 rows in set (0.00 sec)
+
+mysql> alter table mentees1 add marks int(3);
+ERROR 1060 (42S21): Duplicate column name 'marks'
+mysql> update mentees1 set marks=98 where regno=192224053;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update mentees1 set marks=90 where regno=191112300;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update mentees1 set marks=50 where regno=192220009;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> upadte mentees1 set marks=69 where regno=192223043;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'upadte mentees1 set marks=69 where regno=192223043' at line 1
+mysql> update mentees1 set marks=60 where rgno=191113043;
+ERROR 1054 (42S22): Unknown column 'rgno' in 'where clause'
+mysql> update mentees1 set marks=91 where rgno=192223043;
+ERROR 1054 (42S22): Unknown column 'rgno' in 'where clause'
+mysql> update mentees1 set marks=91 where regno=192223043;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update mentees1 set marks=95 where regno=192223456;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select* from mentees1;
++-----------+--------+---------+------+------------+---------+-------+--------+
+| regno     | name   | address | dept | fathername | subject | marks | marks2 |
++-----------+--------+---------+------+------------+---------+-------+--------+
+| 192224053 | indu   | chennai | cse  | madhav     | dbms    |    98 |   NULL |
+| 191112300 | nikita | chennai | cse  | sunny      | dbms    |    90 |   NULL |
+| 192220009 | janu   | chennai | aids | koti       | NULL    |    50 |   NULL |
+| 192223043 | varsha | chennai | cse  | surya      | dbms    |    91 |   NULL |
+| 192223456 | mahi   | chennai | cse  | mahesh     | dbms    |    95 |   NULL |
++-----------+--------+---------+------+------------+---------+-------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select mentees1 order by marks;
+ERROR 1054 (42S22): Unknown column 'mentees1' in 'field list'
+mysql> select mentees  order by marks;
+ERROR 1054 (42S22): Unknown column 'mentees' in 'field list'
+mysql> select from mentees1 order by marks;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from mentees1 order by marks' at line 1
+mysql> select*from mentees1 order by marks;
++-----------+--------+---------+------+------------+---------+-------+--------+
+| regno     | name   | address | dept | fathername | subject | marks | marks2 |
++-----------+--------+---------+------+------------+---------+-------+--------+
+| 192220009 | janu   | chennai | aids | koti       | NULL    |    50 |   NULL |
+| 191112300 | nikita | chennai | cse  | sunny      | dbms    |    90 |   NULL |
+| 192223043 | varsha | chennai | cse  | surya      | dbms    |    91 |   NULL |
+| 192223456 | mahi   | chennai | cse  | mahesh     | dbms    |    95 |   NULL |
+| 192224053 | indu   | chennai | cse  | madhav     | dbms    |    98 |   NULL |
++-----------+--------+---------+------+------------+---------+-------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select* from mentees1 order by dept;
++-----------+--------+---------+------+------------+---------+-------+--------+
+| regno     | name   | address | dept | fathername | subject | marks | marks2 |
++-----------+--------+---------+------+------------+---------+-------+--------+
+| 192220009 | janu   | chennai | aids | koti       | NULL    |    50 |   NULL |
+| 192224053 | indu   | chennai | cse  | madhav     | dbms    |    98 |   NULL |
+| 191112300 | nikita | chennai | cse  | sunny      | dbms    |    90 |   NULL |
+| 192223043 | varsha | chennai | cse  | surya      | dbms    |    91 |   NULL |
+| 192223456 | mahi   | chennai | cse  | mahesh     | dbms    |    95 |   NULL |
++-----------+--------+---------+------+------------+---------+-------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select from mentees1 having marks>90;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from mentees1 having marks>90' at line 1
+mysql> select*from mentees1 having marks>90;
++-----------+--------+---------+------+------------+---------+-------+--------+
+| regno     | name   | address | dept | fathername | subject | marks | marks2 |
++-----------+--------+---------+------+------------+---------+-------+--------+
+| 192224053 | indu   | chennai | cse  | madhav     | dbms    |    98 |   NULL |
+| 192223043 | varsha | chennai | cse  | surya      | dbms    |    91 |   NULL |
+| 192223456 | mahi   | chennai | cse  | mahesh     | dbms    |    95 |   NULL |
++-----------+--------+---------+------+------------+---------+-------+--------+
+3 rows in set (0.00 sec)
+
+mysql>
